@@ -4,7 +4,7 @@
 git clone git@github.com:saulfm08/learn-docker.git
 cd learn-docker
 
-cd nginx
+cd containers/nginx
 # Reads the docker-compose.yml and build the docker image
 docker-compose build
 
@@ -24,7 +24,7 @@ exec -it web-server /bin/sh
 
 Where `web-server` is the container named defined inside `docker-compose.yml`.
 
-Open you browser and try http://localhost
+Open your browser and try http://localhost
 
 # Shutdown
 Shutdown: go to the same directory where `docker-compose.yml` file is located and run:

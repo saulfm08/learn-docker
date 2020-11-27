@@ -3,16 +3,8 @@
 ```
 git clone git@github.com:saulfm08/learn-docker.git
 cd learn-docker
-cd containers/database/mariadb
-```
 
-Copy the .env.sample to .env. Open and edit `.env` variables if needed:
-```
-cp .env.sample .env
-```
-
-After configure .env:
-```
+cd containers/application
 # Reads the docker-compose.yml and build the docker image
 docker-compose build
 
@@ -27,15 +19,16 @@ docker ps -a
 
 You can also login into the container:
 ```
-exec -it mariadb-server /bin/sh
+exec -it app-server /bin/sh
 ```
 
-Where `mongodb-server` is the container name defined inside `docker-compose.yml`.
+Where `app-server` is the container named defined inside `docker-compose.yml`.
 
-You can use linux `mysql` client or [MySql workbench](https://www.mysql.com/products/workbench/) to connect on `localhost:3306`
+Open your browser and try http://localhost:3000
 
 # Shutdown
 Shutdown: go to the same directory where `docker-compose.yml` file is located and run:
 ```
 docker-compose down
 ```
+

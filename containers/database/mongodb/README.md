@@ -32,7 +32,7 @@ You can also login into the container:
 exec -it mongodb-server /bin/sh
 ```
 
-Where `mongodb-server` is the container named defined inside `docker-compose.yml`.
+Where `mongodb-server` is the container name defined inside `docker-compose.yml`.
 
 You can use linux `mongo shell` client or [MongoDB Compass](https://www.mongodb.com/try/download/compass) to connect on `localhost:27017`
 

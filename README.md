@@ -11,6 +11,7 @@ For more details, see [Docker Documentation](https://docs.docker.com/engine/).
 
 Docker Compose relies on Docker Engine for any meaningful work, so make sure you have Docker Engine installed either locally or remote, depending on your setup.
 
+
 # Prerequisites
 - Docker Desktop: [installation section](https://docs.docker.com/desktop/).
 - Docker Compose: [installation section](https://docs.docker.com/compose/install/).
@@ -22,6 +23,29 @@ Samples can be found [here](https://docs.docker.com/samples/).
 
 # Get started
 If you want to build and create all containers once, follow these instructions bellow; otherwise follow the instructions in each containers folders.
+
+## Folder structure
+```
+.
+├── containers/
+│   ├── application/
+│   │   ├── code/
+│   │   ├── docker-compose.yml       # App Server, build and create node.js container
+│   │   └── README.md
+│   ├── database/
+│   │   ├── mariadb/
+│   │   │   ├── docker-compose.yml   # MariaDB (MySQL) Server, build and create database container
+│   │   │   └── README.md
+│   │   └── mongodb/
+│   │       ├── docker-compose.yml   # MongoDB (NoSQL) Server, build/create no-sql db container
+│   │       └── README.md
+│   ├── nginx/
+│   │   ├── docker-compose.yml       # Web Server, build and create nginx container
+│   │   └── README.md
+│   └── docker-compose.yml           # general, build and create all containers
+└── README.md
+
+```
 
 
 To build and create all containers once:
@@ -55,14 +79,19 @@ a3ac89e5088f        containers_mongo        "/usr/bin/mongod --b…"   48 second
 
 
 
-You can also login into the container:
+You can also login into the container (press CTRL+D to exit):
 ```
-exec -it web-server /bin/sh
+exec -it <container name> /bin/sh
 ```
 
-Where `web-server` is the container named defined inside `docker-compose.yml`.
+- For `web-server` container (name defined inside `docker-compose.yml`), open your browser and try http://localhost
 
-Open you browser and try http://localhost
+- For `app-server` container (name defined inside `docker-compose.yml`), open your browser and try http://localhost:3000
+
+- For `mongodb-server` container (name defined inside `docker-compose.yml`), use linux `mongo shell` client or [MongoDB Compass](https://www.mongodb.com/try/download/compass) to connect on `localhost:27017`
+
+- For `mongodb-server` container (name defined inside `docker-compose.yml`), use linux `mysql` client or [MySql workbench](https://www.mysql.com/products/workbench/) to connect on `localhost:3306`
+
 
 # Shutdown
 Shutdown: go to the same directory where `docker-compose.yml` file is located and run:
