@@ -24,7 +24,7 @@ Samples can be found [here](https://docs.docker.com/samples/).
 # Get started
 ## Folder structure
 ```
-.
+learn-docker/
 ├── containers/
 │   ├── application/
 │   │   ├── code/
