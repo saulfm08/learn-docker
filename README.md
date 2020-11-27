@@ -22,8 +22,6 @@ Samples can be found [here](https://docs.docker.com/samples/).
 
 
 # Get started
-If you want to build and create all containers once, follow these instructions bellow; otherwise follow the instructions in each containers folders.
-
 ## Folder structure
 ```
 .
@@ -46,7 +44,10 @@ If you want to build and create all containers once, follow these instructions b
 └── README.md
 
 ```
-
+## One by One
+If you want to deep-learn, follow the instructions in `README.md` inside each `containers` sub-folders.
+## Build/Create all once time
+If you want to build and create all containers once, follow these instructions bellow.
 
 To build and create all containers once:
 ```
