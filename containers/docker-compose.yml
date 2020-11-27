@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  sql-db:
+    container_name: mariadb-server
+    build: ./database/mariadb
+    restart: always
+    volumes:
+      - mariadb-data:/var/lib/mysql/
+    env_file:
+      - ./database/mariadb/.env
+    ports:
+      - "3306:3306"
+    networks:
+      - virtual-net
+  mongo:
+    container_name: mongodb-server
+    build: ./database/mongodb
+    restart: always
+    env_file:
+    - ./database/mongodb/.env        
+    ports:
+      - '27017:27017'
+    entrypoint: [ "/usr/bin/mongod", "--bind_ip_all", "--replSet", "rs0"]
+  mongosetup:
+    image: mongo
+    depends_on:
+      - mongo
+    volumes:
+      - .:/scripts
+    restart: "no"
+    entrypoint: [ "bash", "./database/mongodb/scripts/mongo_setup.sh"]      
+  app-server:
+    container_name: app-server
+    restart: always
+    build: ./application/code
+    ports:
+      - '3000:3000'
+    networks:
+      - virtual-net
+  nginx:
+    container_name: web-server
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - virtual-net
+    depends_on:
+      - app-server
+  redis:
+    container_name: redis-server
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    networks:
+      - virtual-net
+volumes: 
+  mariadb-data:
+networks:
+  virtual-net:
