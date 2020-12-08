@@ -30,21 +30,23 @@ learn-docker/
 ├── containers/
 │   ├── application/
 │   │   ├── code/
-│   │   ├── docker-compose.yml       # App Server, build and create node.js container
+│   │   ├── docker-compose.yml     # App Server, build and create node.js container
 │   │   └── README.md
 │   ├── database/
 │   │   ├── mariadb/
-│   │   │   ├── docker-compose.yml   # MariaDB (MySQL) Server, build and create database container
+│   │   │   ├── docker-compose.yml # MariaDB (MySQL) Server, build and create database container
 │   │   │   └── README.md
-│   │   └── mongodb/
-│   │       ├── docker-compose.yml   # MongoDB (NoSQL) Server, build/create no-sql db container
+│   │   ├── mongodb/
+│   │   │   ├── docker-compose.yml # MongoDB (NoSQL) Server, build/create no-sql db container
+│   │   │   └── README.md
+│   │   └── postgres/
+│   │       ├── docker-compose.yml # PostgreSQL Server, build and create no-sql container
 │   │       └── README.md
 │   ├── nginx/
-│   │   ├── docker-compose.yml       # Web Server, build and create nginx container
+│   │   ├── docker-compose.yml     # Web Server, build and create nginx container
 │   │   └── README.md
-│   └── docker-compose.yml           # general, build and create all containers
+│   └── docker-compose.yml         # general, build and create all containers
 └── README.md
-
 ```
 ## One by One
 If you want to deep-learn, follow the instructions in `README.md` inside each `containers` sub-folders.

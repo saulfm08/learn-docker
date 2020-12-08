@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   sql-db:
     container_name: mariadb-server

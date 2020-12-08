@@ -3,7 +3,7 @@
 ```
 git clone git@github.com:saulfm08/learn-docker.git
 cd learn-docker
-cd containers/database/mariadb
+cd containers/database/postgres
 ```
 
 Copy the .env.sample to .env. Open and edit `.env` variables if needed:
@@ -27,12 +27,12 @@ docker ps -a
 
 You can also login into the container:
 ```
-exec -it mariadb-server /bin/sh
+exec -it postgres-server /bin/sh
 ```
 
-Where `mariadb-server` is the container name defined inside `docker-compose.yml`.
+Where `postgres-server` is the container name defined inside `docker-compose.yml`.
 
-You can use linux `mysql` client or [MySql workbench](https://www.mysql.com/products/workbench/) to connect on `localhost:3306`
+You can use linux `pgsql` client or [PgAdmin](https://www.pgadmin.org/) to connect on `localhost:5432`
 
 # Shutdown
 Shutdown: go to the same directory where `docker-compose.yml` file is located and run:
